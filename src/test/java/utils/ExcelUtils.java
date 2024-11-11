@@ -52,7 +52,10 @@ public class ExcelUtils {
                 returnValue = cell.getStringCellValue();
             } else if (cell.getCellType() == CellType.NUMERIC) {
                 returnValue = String.format("%.0f", cell.getNumericCellValue());
-            } else {
+            } else if (cell.getCellType() == CellType.BOOLEAN){
+                returnValue = String.valueOf(cell.getBooleanCellValue());
+            }
+            else {
                 returnValue = "";
             }
         } catch (Exception e) {
